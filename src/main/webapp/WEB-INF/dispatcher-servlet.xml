@@ -10,7 +10,9 @@
     	http://www.springframework.org/schema/context
     	http://www.springframework.org/schema/context/spring-context.xsd
     	http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
     <!-- Step 3: Add support for component scanning -->
     <context:component-scan base-package="yungshun.chang.springmvchibernatecrm" />
@@ -28,7 +30,7 @@
     <!-- Step 6: Define Database DataSource / Connection Pool -->
     <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/crm?useSSL=false&amp;serverTimezone=UTC" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/spring_mvc_hibernate_crm?useSSL=false&amp;serverTimezone=UTC" />
         <property name="user" value="yungshun" />
         <property name="password" value="lucifer317" />
         <!-- Connection Pool Properties for C3P0 -->
