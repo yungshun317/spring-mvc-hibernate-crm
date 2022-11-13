@@ -6,13 +6,40 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>List Customers</title>
 </head>
 <body>
 
-Coming Soon...
+<div id="wrapper">
+    <div id="header">
+        <h2>CRM - Customer Relationship Manager</h2>
+    </div>
+
+    <div id="container">
+        <div id="content">
+            <!-- Add HTML table -->
+            <table>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+
+                <!-- Loop over and print customers -->
+                <c:forEach var="tmpCustomer" items="${customers}">
+                    <tr>
+                        <td>${tmpCustomer.firstName}</td>
+                        <td>${tmpCustomer.lastName}</td>
+                        <td>${tmpCustomer.email}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
