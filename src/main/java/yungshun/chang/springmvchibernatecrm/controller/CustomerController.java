@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController {
 
-    // Need to inject the customer DAO
+    // Inject the customer DAO
     @Autowired
     private CustomerDAO customerDAO;
 
