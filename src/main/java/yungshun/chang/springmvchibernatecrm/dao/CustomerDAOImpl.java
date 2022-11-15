@@ -13,12 +13,11 @@ import java.util.List;
 @Repository
 public class CustomerDAOImpl implements CustomerDAO {
 
-    // Need to inject the session factory
+    // Inject the session factory
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    @Transactional
     public List<Customer> getCustomers() {
 
         // Get the current hibernate session
@@ -32,5 +31,15 @@ public class CustomerDAOImpl implements CustomerDAO {
 
         // Return the results
         return customers;
+    }
+
+    @Override
+    public void saveCustomer(Customer customer) {
+
+        // Get current hibernate session
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        // Save the customer
+        currentSession.save(customer);
     }
 }
