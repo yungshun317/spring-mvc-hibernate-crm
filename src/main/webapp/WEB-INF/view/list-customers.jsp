@@ -20,6 +20,14 @@
 
     <div id="container">
         <div id="content">
+
+            <!-- Add Customer -->
+            <input type="button"
+                   value="Add Customer"
+                   onclick="windows.location.href='showFormForAdd'; return false;"
+                   class="add-button"
+            />
+
             <!-- Add HTML table -->
             <table>
                 <tr>
