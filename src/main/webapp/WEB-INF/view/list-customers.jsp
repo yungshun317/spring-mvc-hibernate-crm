@@ -24,7 +24,7 @@
             <!-- Add Customer -->
             <input type="button"
                    value="Add Customer"
-                   onclick="windows.location.href='showFormForAdd'; return false;"
+                   onclick="window.location.href='showFormForAdd'; return false;"
                    class="add-button"
             />
 
