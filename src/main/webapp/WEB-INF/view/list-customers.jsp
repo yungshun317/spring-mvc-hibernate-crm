@@ -38,11 +38,22 @@
 
                 <!-- Loop over and print customers -->
                 <c:forEach var="tmpCustomer" items="${customers}">
+
+                    <!-- Construct an update link with customer id -->
+                    <c:url var="updateLink" value="/customer/showFormForUpdate">
+                        <c:param name="customerId" value="${tmpCustomer.id}" />
+                    </c:url>
+
                     <tr>
                         <td>${tmpCustomer.firstName}</td>
                         <td>${tmpCustomer.lastName}</td>
                         <td>${tmpCustomer.email}</td>
+                        <td>
+                            <!-- Display the update link -->
+                            <a href="${updateLink}">Update</a>
+                        </td>
                     </tr>
+
                 </c:forEach>
             </table>
         </div>
