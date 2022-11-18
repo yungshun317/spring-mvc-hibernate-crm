@@ -3,10 +3,7 @@ package yungshun.chang.springmvchibernatecrm.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import yungshun.chang.springmvchibernatecrm.dao.CustomerDAO;
 import yungshun.chang.springmvchibernatecrm.entity.Customer;
 import yungshun.chang.springmvchibernatecrm.service.CustomerService;
@@ -51,5 +48,18 @@ public class CustomerController {
         customerService.saveCustomer(customer);
 
         return "redirect:/customer/list";
+    }
+
+    @GetMapping("/showFormForUpdate")
+    public String showFormForUpdate(@RequestParam("customerId") int id, Model model) {
+
+        // Get customer from service
+        Customer customer = customerService.getCustomer(id);
+
+        // Set customer as a model attribute to pre-populate the form
+        model.addAttribute("customer", customer);
+
+        // Send over to our form
+        return "customer-form";
     }
 }
